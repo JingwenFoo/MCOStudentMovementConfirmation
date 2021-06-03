@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1060932129636",
+    "firebase_url": "https://mco-student-movement-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mco-student-movement",
+    "storage_bucket": "mco-student-movement.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060932129636:android:496440e3e1c28285c22071",
+        "android_client_info": {
+          "package_name": "com.example.mcostudentmovementconfirmation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060932129636-8tn73mjor72jm598ba6tkrnj04c4bfm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4CU9gu9P2wZ76IrQ8lM6ityQsigN4K3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060932129636-8tn73mjor72jm598ba6tkrnj04c4bfm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

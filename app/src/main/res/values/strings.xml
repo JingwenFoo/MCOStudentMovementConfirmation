@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MCO Student Movement Confirmation</string>
+
+    <string-array name="state">
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Pahang</item>
+        <item>Perlis</item>
+        <item>Terengganu</item>
+        <item>Malacca</item>
+        <item>Negeri Sembilan</item>
+        <item>Selangor</item>
+        <item>Johor</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+    </string-array>
+</resources>
