@@ -2,6 +2,7 @@
     <string name="app_name">MCO Student Movement Confirmation</string>
 
     <string-array name="state">
+        <item>Select state</item>
         <item>Kedah</item>
         <item>Kelantan</item>
         <item>Penang</item>

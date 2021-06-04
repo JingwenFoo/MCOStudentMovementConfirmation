@@ -59,6 +59,13 @@ DatabaseReference ref;
 
                                ref.child("User").child(student.getStudentID()).setValue(student);
                                Toast.makeText(Register.this, "Register successfully", Toast.LENGTH_SHORT).show();
+                               stdID.getText().clear();
+                               stdIC.getText().clear();
+                               stdName.getText().clear();
+                               phone.getText().clear();
+                               passwrd.getText().clear();
+                               email.getText().clear();
+
                            } else {
                                Toast.makeText(Register.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                            }

@@ -44,6 +44,14 @@ DatabaseReference ref;
             }
         });
 
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profile = new Intent(StudentPage.this, ViewProfile.class);
+                startActivity(profile);
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

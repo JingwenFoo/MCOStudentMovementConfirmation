@@ -85,6 +85,7 @@
         android:id="@+id/editTextStdIC"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="Enter Student IC"
         android:gravity="center_horizontal"
         android:layout_marginTop="230dp"
