@@ -3,7 +3,6 @@
     package="com.example.mcostudentmovementconfirmation">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
@@ -13,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
+        <activity android:name=".UpdateProfile"
+            android:label="Update Profile"
+            android:parentActivityName=".ViewProfile"></activity>
+        <activity android:name=".ViewProfile"
+            android:label="Student Profile"
+            android:parentActivityName=".StudentPage"/>
         <activity
             android:name=".StudentPage"
             android:label="Student Homepage"
