@@ -7,7 +7,7 @@ import android.view.View;
 
 public class preferences {
     private static final String DATA_LOGIN = "status_login",
-    DATA_STATUS = "userType";
+    DATA_STATUS = "studentID";
 
     private static SharedPreferences getSharedReferences(Context context)
     {

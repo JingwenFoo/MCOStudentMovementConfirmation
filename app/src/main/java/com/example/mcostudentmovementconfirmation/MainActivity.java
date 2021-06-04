@@ -64,10 +64,19 @@ BiometricPrompt.PromptInfo promptInfo;
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-                preferences.setDataLogin(MainActivity.this,true);
-                preferences.setDataStatus(MainActivity.this,username.getText().toString());
-                Intent in = new Intent(MainActivity.this, StudentPage.class);
-                startActivity(in);
+                if(username.getText().toString().equals("Admin"))
+                {
+                    preferences.setDataLogin(MainActivity.this,true);
+                    preferences.setDataStatus(MainActivity.this,username.getText().toString());
+                    Intent in = new Intent(MainActivity.this, AdminPage.class);
+                    startActivity(in);
+                }
+                else {
+                    preferences.setDataLogin(MainActivity.this, true);
+                    preferences.setDataStatus(MainActivity.this, username.getText().toString());
+                    Intent in = new Intent(MainActivity.this, StudentPage.class);
+                    startActivity(in);
+                }
             }
 
             @Override
@@ -88,7 +97,31 @@ BiometricPrompt.PromptInfo promptInfo;
         fingerprint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                biometricPrompt.authenticate(promptInfo);
+                if(username.getText().length()!=0){
+                    String User = username.getText().toString();
+                    ref.child("User").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                            if(dataSnapshot1.child(User).exists()) {
+                                biometricPrompt.authenticate(promptInfo);
+                            }
+                            else
+                            {
+                                Toast.makeText(MainActivity.this,"Invalid username",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+               else
+                {
+                    Toast.makeText(MainActivity.this,"Please enter username",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -164,13 +197,13 @@ BiometricPrompt.PromptInfo promptInfo;
         super.onStart();
         if(preferences.getDataLogin(this))
         {
-            if(preferences.getDataStatus(this).equals(1))
+            if(preferences.getDataStatus(this).equals("Admin"))
             {
                 Intent in = new Intent(MainActivity.this,AdminPage.class);
                 startActivity(in);
                 finish();
             }
-            else if(preferences.getDataStatus(this).equals(0))
+            else
             {
                 Intent in = new Intent(MainActivity.this,StudentPage.class);
                 startActivity(in);

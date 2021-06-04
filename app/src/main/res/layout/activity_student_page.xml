@@ -13,6 +13,59 @@
         android:text="logout"
         android:layout_marginLeft="310dp"/>
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ump"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Welcome to UMP MCO Sudent Movement Confirmation Application"
+        android:textSize="24dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/teal_700"
+        android:textStyle="bold"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewName"
+        android:textSize="14dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="130dp"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Student ID : "
+        android:textSize="14dp"
+        android:gravity="right"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="460dp"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewID"
+        android:textSize="14dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="130dp"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Student Name : "
+        android:textSize="14dp"
+        android:gravity="right"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="400dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
