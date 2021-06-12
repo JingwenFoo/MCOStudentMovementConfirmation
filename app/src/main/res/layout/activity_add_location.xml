@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Add New Location"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:textColor="@color/purple_700"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="100dp"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Location Name: "
+        android:textSize="14dp"
+        android:gravity="right"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="190dp"/>
+
+    <EditText
+        android:id="@+id/editTextAddLocation"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Location Name"
+        android:inputType="textEmailAddress"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="175dp"
+        android:layout_marginLeft="110dp"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Get Location: "
+        android:textSize="14dp"
+        android:gravity="right"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="85dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_output"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="220dp"/>
+
+    <Button
+        android:id="@+id/btn_genarate"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="168dp"
+        android:text="Generate" />
+
+    <Button
+        android:id="@+id/btn_Location"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="70dp"
+        android:text="Track Here" />
+
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Current Location "
+        android:textSize="14dp"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="130dp"/>
+
+    <Button
+        android:id="@+id/btnAddLocation"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Add Location"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="560dp"/>
+
+    <Button
+        android:id="@+id/btnBackToView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Back to Home"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="560dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="510dp" />
+
+</RelativeLayout>
