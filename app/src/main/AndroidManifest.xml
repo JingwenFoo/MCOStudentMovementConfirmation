@@ -12,12 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
-        <activity android:name=".UpdateProfile"
+        <activity
+            android:name=".AddPost"
+            android:label="Add Post"
+            android:parentActivityName=".AdminPage"
+            ></activity>
+        <activity
+            android:name=".UpdateProfile"
             android:label="Update Profile"
-            android:parentActivityName=".ViewProfile"></activity>
-        <activity android:name=".ViewProfile"
+            android:parentActivityName=".ViewProfile" />
+        <activity
+            android:name=".ViewProfile"
             android:label="Student Profile"
-            android:parentActivityName=".StudentPage"/>
+            android:parentActivityName=".StudentPage" />
         <activity
             android:name=".StudentPage"
             android:label="Student Homepage"
