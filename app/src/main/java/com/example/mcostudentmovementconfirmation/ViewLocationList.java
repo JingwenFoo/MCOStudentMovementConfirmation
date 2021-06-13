@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.core.Context;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.lang.ref.Reference;
 import java.util.ArrayList;
@@ -79,9 +81,9 @@ public class ViewLocationList extends AppCompatActivity {
             }
 
             @Override
-                    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Model model) {
+                    protected void onBindViewHolder( ViewHolder holder, int position, Model model) {
 
-                        holder.setdetails(getApplicationContext(), model.getImageName(), model.getImageUrl());
+                        holder.setdetails(getApplicationContext(), model.getImageUrl(), model.getImageName());
                     }
 
         };

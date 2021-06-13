@@ -2,31 +2,29 @@ package com.example.mcostudentmovementconfirmation;
 
 public class Model {
     //Model class
-    String imageName,imageUrl;
+    String imageName,ImageUrl;
+
+    public Model(String imageName, String imageUrl) {
+        this.imageName = imageName;
+        this.ImageUrl = imageUrl;
+    }
 
     //Constructors
     public Model(){ }
 
-    public Model(String imageName, String imageUrl) {
-        this.imageName = imageName;
-        this.imageUrl = imageUrl;
-    }
-
-    //getter
     public String getImageName() {
         return imageName;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    //setter
     public void setImageName(String imageName) {
         this.imageName = imageName;
     }
 
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.ImageUrl = imageUrl;
     }
 }
