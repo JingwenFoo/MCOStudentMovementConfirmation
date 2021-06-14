@@ -1,16 +1,25 @@
 package com.example.mcostudentmovementconfirmation;
 
 public class Model {
-    String postID, description, postImage, publisher;
+    String postID, time, description, postImage, publisher;
 
     public Model() {
     }
 
-    public Model(String postID, String description, String postImage, String publisher) {
+    public Model(String postID, String time, String description, String postImage, String publisher) {
         this.postID = postID;
+        this.time = time;
         this.description = description;
         this.postImage = postImage;
         this.publisher = publisher;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getDescription() {

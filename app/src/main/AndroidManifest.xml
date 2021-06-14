@@ -3,7 +3,6 @@
     package="com.example.mcostudentmovementconfirmation">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
+        <activity android:name=".UpdatePost"
+            android:label="Update Post"
+            android:parentActivityName=".AdminPage"></activity>
+        <activity
+            android:name=".ViewPost"
+            android:label="Post"
+            android:parentActivityName=".StudentPage" />
         <activity
             android:name=".AddPost"
             android:label="Add Post"
-            android:parentActivityName=".AdminPage"
-            ></activity>
+            android:parentActivityName=".AdminPage" />
         <activity
             android:name=".UpdateProfile"
             android:label="Update Profile"
