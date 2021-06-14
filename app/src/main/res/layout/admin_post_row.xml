@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="80dp">
         <ImageView
-            android:id="@+id/profileImage"
+            android:id="@+id/adminprofileImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_person"/>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="UMP"
             android:textStyle="bold"
@@ -30,8 +30,8 @@
             android:layout_marginEnd="50dp"/>
 
         <TextView
-            android:id="@+id/datePost"
-            android:layout_width="match_parent"
+            android:id="@+id/admindatePost"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
             android:textSize="16dp"
@@ -39,6 +39,15 @@
             android:layout_marginTop="40dp"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"/>
+
+        <ImageButton
+            android:id="@+id/moreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+           android:src="@drawable/ic_baseline_more_horiz_24"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 
@@ -50,7 +59,7 @@
         >
 
         <TextView
-            android:id="@+id/descriptionPost"
+            android:id="@+id/admindescriptionPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -58,7 +67,7 @@
             android:padding="10dp"/>
 
         <ImageView
-            android:id="@+id/imagePost"
+            android:id="@+id/adminimagePost"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="fitCenter"

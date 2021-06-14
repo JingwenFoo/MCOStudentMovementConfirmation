@@ -38,6 +38,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         //Glide.with(context).load(postList.get(position).getImageUrl()).into(holder.imageView);
         Picasso.get().load(postList.get(position).getPostImage()).into(holder.imageView);
         holder.description.setText(postList.get(position).getDescription());
+        holder.time.setText(postList.get(position).getTime());
+
     }
 
     @Override
@@ -48,14 +50,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     public static class PostViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView description;
+        TextView description, time;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imagePost);
             description = itemView.findViewById(R.id.descriptionPost);
-
-
+            time = itemView.findViewById(R.id.datePost);
         }
 
     }

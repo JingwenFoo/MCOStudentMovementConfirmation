@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class StudentPage extends AppCompatActivity {
-Button logout, profile;
+Button logout, profile, post;
 TextView textName, textID;
 DatabaseReference ref;
     @Override
@@ -28,6 +28,7 @@ DatabaseReference ref;
         ref = FirebaseDatabase.getInstance().getReference();
         textName = (TextView) findViewById(R.id.textViewName);
         textID = (TextView) findViewById(R.id.textViewID);
+        post = (Button) findViewById(R.id.btnPost);
 
         textID.setText(String.valueOf(preferences.getDataStatus(this)));
 
@@ -49,6 +50,14 @@ DatabaseReference ref;
             public void onClick(View v) {
                 Intent profile = new Intent(StudentPage.this, ViewProfile.class);
                 startActivity(profile);
+            }
+        });
+
+        post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent post = new Intent(StudentPage.this, ViewPost.class);
+                startActivity(post);
             }
         });
 

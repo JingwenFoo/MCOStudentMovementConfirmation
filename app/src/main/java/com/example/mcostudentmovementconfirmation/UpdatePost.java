@@ -5,7 +5,6 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -27,50 +26,72 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Field;
-import java.sql.Time;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 
-public class AddPost extends AppCompatActivity {
-TextView post;
-ImageView cancel, selectedImage;
-Button pickImageBtn;
-EditText description;
-ProgressDialog progressDialog;
+public class UpdatePost extends AppCompatActivity {
+    TextView updatePost;
+    ImageView cancelUpdate, selectedImageUpdate;
+    Button pickImageUpdateBtn;
+    EditText descriptionUpdate;
+    ProgressDialog progressDialogUpdate;
 
-Uri imageUri;
-String url;
-public static final int PICK_IMAGE=100;
+    Uri imageUriUpdate;
+    String urlUpdate;
+    public static final int PICK_IMAGE=100;
 
-FirebaseAuth auth;
-DatabaseReference ref;
-StorageReference storageReference;
+    FirebaseAuth auth;
+    DatabaseReference ref;
+    StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_post);
-        post = findViewById(R.id.postUpload);
-        cancel = findViewById(R.id.cancelPost);
-        selectedImage = findViewById(R.id.postImage);
-        pickImageBtn = findViewById(R.id.pickImageBtn);
-        description = findViewById(R.id.postDescription);
-        progressDialog = new ProgressDialog(this);
+        setContentView(R.layout.activity_update_post);
+        updatePost = findViewById(R.id.postUpdate);
+        cancelUpdate = findViewById(R.id.cancelPostUpdate);
+        selectedImageUpdate = findViewById(R.id.postImageUpdate);
+        pickImageUpdateBtn = findViewById(R.id.pickImageUpdateBtn);
+        descriptionUpdate = findViewById(R.id.postDescriptionUpdate);
+        progressDialogUpdate = new ProgressDialog(this);
 
         auth = FirebaseAuth.getInstance();
+        ref = FirebaseDatabase.getInstance().getReference().child("Post");
         storageReference = FirebaseStorage.getInstance().getReference().child("Post images/");
+
+        Intent intent = getIntent();
+        String editPostID = ""+intent.getStringExtra("editPostID");
+
+        Query fquery = ref.orderByChild("postID").equalTo(editPostID);
+        fquery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    String imagePost = ""+ds.child("postImage").getValue();
+                    String descriptionPost = ""+ds.child("description").getValue();
+
+                    descriptionUpdate.setText(descriptionPost);
+                    Picasso.get().load(imagePost).into(selectedImageUpdate);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         ActivityResultLauncher<Intent> pickImageResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -79,18 +100,18 @@ StorageReference storageReference;
                         if(result.getResultCode() == Activity.RESULT_OK)
                         {
                             Intent data = result.getData();
-                            imageUri=data.getData();
-                            selectedImage.setImageURI(imageUri);
+                            imageUriUpdate=data.getData();
+                            selectedImageUpdate.setImageURI(imageUriUpdate);
                         }
                         else
                         {
-                            Toast.makeText(AddPost.this,"No image is selected",Toast.LENGTH_SHORT).show();
-                            selectedImage.setImageResource(R.drawable.ic_baseline_add_24);
+                            Toast.makeText(UpdatePost.this,"No image is selected",Toast.LENGTH_SHORT).show();
+                            selectedImageUpdate.setImageResource(R.drawable.ic_baseline_add_24);
                         }
                     }
                 });
 
-        pickImageBtn.setOnClickListener(new View.OnClickListener() {
+        pickImageUpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -99,24 +120,16 @@ StorageReference storageReference;
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        updatePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back = new Intent(AddPost.this, AdminPage.class);
-                startActivity(back);
-            }
-        });
-
-        post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(imageUri != null)
+                if(imageUriUpdate != null)
                 {
                     uploadPost();
                 }
                 else
                 {
-                    Toast.makeText(AddPost.this,"No image selected",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdatePost.this,"No image selected",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -124,46 +137,44 @@ StorageReference storageReference;
 
     private void uploadPost()
     {
-        progressDialog.setTitle("New Post");
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
+        progressDialogUpdate.setTitle("Update Post");
+        progressDialogUpdate.setCanceledOnTouchOutside(false);
+        progressDialogUpdate.show();
 
-        if(imageUri !=null)
+        if(imageUriUpdate !=null)
         {
-            StorageReference sRef = storageReference.child(System.currentTimeMillis()+"."+getExtensionFile(imageUri));
-            sRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            StorageReference sRef = storageReference.child(System.currentTimeMillis()+"."+getExtensionFile(imageUriUpdate));
+            sRef.putFile(imageUriUpdate).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     sRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            url = uri.toString();
-                            ref = FirebaseDatabase.getInstance().getReference().child("Post");
+                            urlUpdate = uri.toString();
 
                             long time = System.currentTimeMillis();
                             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:a");
                             String currentTime = sdf.format(System.currentTimeMillis());
                             String postID = ref.push().getKey();
                             HashMap<String,Object> map = new HashMap<>();
-                            map.put("postID",postID);
                             map.put("time", currentTime);
-                            map.put("postImage",url);
-                            map.put("description",description.getText().toString());
-                            map.put("publisher",String.valueOf(preferences.getDataStatus(AddPost.this)));
+                            map.put("postImage",urlUpdate);
+                            map.put("description",descriptionUpdate.getText().toString());
+                            map.put("publisher",String.valueOf(preferences.getDataStatus(UpdatePost.this)));
 
-                            progressDialog.dismiss();
+                            progressDialogUpdate.dismiss();
                             ref.child(postID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful())
                                     {
-                                        Toast.makeText(AddPost.this, "Post Uploaded",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(AddPost.this,AdminPage.class));
+                                        Toast.makeText(UpdatePost.this, "Post Updated",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(UpdatePost.this,AdminPage.class));
                                         finish();
                                     }
                                     else
                                     {
-                                        Toast.makeText(AddPost.this,"Failed upload post",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(UpdatePost.this,"Failed upload post",Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -171,8 +182,8 @@ StorageReference storageReference;
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AddPost.this,"Failed "+e.getMessage(),Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
+                            Toast.makeText(UpdatePost.this,"Failed "+e.getMessage(),Toast.LENGTH_SHORT).show();
+                            progressDialogUpdate.dismiss();
                         }
                     });
                 }
