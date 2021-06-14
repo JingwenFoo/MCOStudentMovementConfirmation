@@ -140,7 +140,6 @@ StorageReference storageReference;
                             url = uri.toString();
                             ref = FirebaseDatabase.getInstance().getReference().child("Post");
 
-                            long time = System.currentTimeMillis();
                             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:a");
                             String currentTime = sdf.format(System.currentTimeMillis());
                             String postID = ref.push().getKey();
