@@ -5,7 +5,8 @@
     tools:ignore="ProtectedPermissions">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,9 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
-        <activity android:name=".UpdatePost"
+        <activity android:name=".ScanPage"></activity>
+        <activity android:name=".qrscanner" />
+        <activity
+            android:name=".UpdatePost"
             android:label="Update Post"
-            android:parentActivityName=".AdminPage"></activity>
+            android:parentActivityName=".AdminPage" />
         <activity
             android:name=".ViewPost"
             android:label="Post"
