@@ -93,6 +93,8 @@ public class AdminPostAdapter extends RecyclerView.Adapter<AdminPostAdapter.Admi
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Post");
                 ref.child(postID).removeValue();
                 Toast.makeText(context,"Post deleted successfully",Toast.LENGTH_SHORT).show();
+                Intent refresh = new Intent(context,AdminPage.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(refresh);
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

@@ -103,11 +103,6 @@ public class UpdatePost extends AppCompatActivity {
                             imageUriUpdate=data.getData();
                             selectedImageUpdate.setImageURI(imageUriUpdate);
                         }
-                        else
-                        {
-                            Toast.makeText(UpdatePost.this,"No image is selected",Toast.LENGTH_SHORT).show();
-                            selectedImageUpdate.setImageResource(R.drawable.ic_baseline_add_24);
-                        }
                     }
                 });
 
@@ -123,27 +118,27 @@ public class UpdatePost extends AppCompatActivity {
         updatePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(imageUriUpdate != null)
-                {
-                    uploadPost();
-                }
-                else
-                {
-                    Toast.makeText(UpdatePost.this,"No image selected",Toast.LENGTH_SHORT).show();
-                }
+
+                    uploadPost(editPostID);
+            }
+        });
+
+        cancelUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cancel = new Intent(UpdatePost.this, AdminPage.class);
+                startActivity(cancel);
             }
         });
     }
 
-    private void uploadPost()
-    {
+    private void uploadPost(String postID) {
         progressDialogUpdate.setTitle("Update Post");
         progressDialogUpdate.setCanceledOnTouchOutside(false);
         progressDialogUpdate.show();
 
-        if(imageUriUpdate !=null)
-        {
-            StorageReference sRef = storageReference.child(System.currentTimeMillis()+"."+getExtensionFile(imageUriUpdate));
+        if (imageUriUpdate != null) {
+            StorageReference sRef = storageReference.child(System.currentTimeMillis() + "." + getExtensionFile(imageUriUpdate));
             sRef.putFile(imageUriUpdate).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -152,29 +147,23 @@ public class UpdatePost extends AppCompatActivity {
                         public void onSuccess(Uri uri) {
                             urlUpdate = uri.toString();
 
-                            long time = System.currentTimeMillis();
                             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:a");
                             String currentTime = sdf.format(System.currentTimeMillis());
-                            String postID = ref.push().getKey();
                             HashMap<String,Object> map = new HashMap<>();
                             map.put("time", currentTime);
                             map.put("postImage",urlUpdate);
                             map.put("description",descriptionUpdate.getText().toString());
-                            map.put("publisher",String.valueOf(preferences.getDataStatus(UpdatePost.this)));
 
                             progressDialogUpdate.dismiss();
-                            ref.child(postID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            ref.child(postID).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful())
-                                    {
-                                        Toast.makeText(UpdatePost.this, "Post Updated",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(UpdatePost.this,AdminPage.class));
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(UpdatePost.this, "Post Updated", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(UpdatePost.this, AdminPage.class));
                                         finish();
-                                    }
-                                    else
-                                    {
-                                        Toast.makeText(UpdatePost.this,"Failed upload post",Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(UpdatePost.this, "Failed upload post", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -182,10 +171,32 @@ public class UpdatePost extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(UpdatePost.this,"Failed "+e.getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdatePost.this, "Failed update" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             progressDialogUpdate.dismiss();
                         }
                     });
+                }
+            });
+        }
+        else
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:a");
+            String currentTime = sdf.format(System.currentTimeMillis());
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("time", currentTime);
+            map.put("description",descriptionUpdate.getText().toString());
+
+            progressDialogUpdate.dismiss();
+            ref.child(postID).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(UpdatePost.this, "Post Updated", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(UpdatePost.this, AdminPage.class));
+                        finish();
+                    } else {
+                        Toast.makeText(UpdatePost.this, "Failed upload post", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
