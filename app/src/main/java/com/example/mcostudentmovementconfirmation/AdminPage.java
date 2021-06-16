@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-Button logout;
+Button logout,btnAccount;
 FloatingActionButton addPostBtn;
 RecyclerView postRecyclerView;
 ArrayList<Model> postList;
@@ -32,6 +32,7 @@ DatabaseReference ref;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
         logout = (Button)findViewById(R.id.btnLogoutAdmin);
+        btnAccount= (Button) findViewById(R.id.btnAccount);
         addPostBtn = (FloatingActionButton)findViewById(R.id.fab);
         postRecyclerView = (RecyclerView)findViewById(R.id.postRecyclerView);
         postRecyclerView.setHasFixedSize(true);
@@ -74,6 +75,14 @@ DatabaseReference ref;
                 startActivity(in);
                 preferences.clearData(AdminPage.this);
                 finish();
+            }
+        });
+
+        btnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent accountList = new Intent(AdminPage.this, AccountList.class);
+                startActivity(accountList);
             }
         });
     }
