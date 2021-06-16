@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-Button logout;
+Button logout,btnAccount;
 FloatingActionButton addPostBtn;
 RecyclerView postRecyclerView;
 ArrayList<Model> postList;
@@ -79,6 +79,7 @@ DatabaseReference ref;
                 finish();
             }
         });
+
 
     }
 }
