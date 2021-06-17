@@ -58,16 +58,16 @@ DatabaseReference ref;
         checkIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profile = new Intent(StudentPage.this, ScanPage.class);
-                startActivity(profile);
+                Intent checkin = new Intent(StudentPage.this, ScanPage.class);
+                startActivity(checkin);
             }
         });
 
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profile = new Intent(StudentPage.this, HistoryPage.class);
-                startActivity(profile);
+                Intent history = new Intent(StudentPage.this, HistoryPage.class);
+                startActivity(history);
             }
         });
 
