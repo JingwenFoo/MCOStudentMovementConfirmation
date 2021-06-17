@@ -43,7 +43,7 @@
         android:layout_marginLeft="30dp"/>
 
     <TextView
-        android:id="@+id/textID"
+        android:id="@+id/textLocation"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textSize="16dp"
