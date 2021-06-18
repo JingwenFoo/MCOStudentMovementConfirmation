@@ -15,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
+        <activity android:name=".AccountList"
+            android:label="Account List"
+            android:parentActivityName=".AdminPage"/>
         <activity android:name=".ScanPage"></activity>
         <activity android:name=".qrscanner" />
         <activity

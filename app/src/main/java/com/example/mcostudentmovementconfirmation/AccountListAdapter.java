@@ -8,24 +8,45 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public abstract class AccountListAdapter extends CursorAdapter {
-    public AccountListAdapter(Context context, Cursor cursor) {
-        super(context, cursor, 0);
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.AccountViewHolder> {
+ArrayList<Student> accountList;
+Context context;
+
+    public AccountListAdapter(ArrayList<Student> accountList, Context context) {
+        this.accountList = accountList;
+        this.context = context;
     }
+
+    @NonNull
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.studid_name_layout, parent, false);
+    public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.studid_name_layout,parent,false);
+        return new AccountListAdapter.AccountViewHolder(v);
     }
+
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        // Find fields to populate in inflated template
-        TextView display_name = (TextView) view.findViewById(R.id.display_name);
-        TextView display_studid = (TextView) view.findViewById(R.id.display_studid);
-        // Extract properties from cursor
-        String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
-        String id = cursor.getString(cursor.getColumnIndexOrThrow("studentID"));
-        // Populate fields with extracted properties
-        display_name.setText(name);
-        display_studid.setText(id);
+    public void onBindViewHolder(@NonNull AccountViewHolder holder, int position) {
+        holder.studentName.setText(accountList.get(position).getName());
+        holder.studentID.setText(accountList.get(position).getStudentID());
     }
+
+    @Override
+    public int getItemCount() {
+        return accountList.size();
+    }
+
+    public static class AccountViewHolder extends RecyclerView.ViewHolder{
+        TextView studentName, studentID;
+        public AccountViewHolder(@NonNull View itemView) {
+            super(itemView);
+            studentName = itemView.findViewById(R.id.display_name);
+            studentID = itemView.findViewById(R.id.display_studid);
+        }
+    }
+
 }
