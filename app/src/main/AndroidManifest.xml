@@ -5,6 +5,8 @@
     tools:ignore="ProtectedPermissions">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -16,7 +18,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
 
-        <activity android:name=".ScanPage"></activity>
+        <activity
+            android:name=".saveLocation"
+            android:label="Add QrCode Location"
+            android:parentActivityName=".AddLocation" />
+        <activity
+            android:name=".AddLocation"
+            android:label="New Location QrCode"
+            android:parentActivityName=".ViewLocationList" />
+        <activity
+            android:name=".ViewLocationList"
+            android:label="List of Location"
+            android:parentActivityName=".AdminPage"/>
+        <activity android:name=".ScanPage"
+            android:label="Scan QR code"
+            android:parentActivityName=".StudentPage"></activity>
+        <activity android:name=".HistoryPage"
+            android:label="History Check In"
+            android:parentActivityName=".StudentPage"/>
         <activity android:name=".qrscanner" />
         <activity android:name=".AccountList"
             android:label="Account List"
