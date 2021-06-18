@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-Button logout;
+Button logout,btnAccount;
 FloatingActionButton addPostBtn;
 RecyclerView postRecyclerView;
 ArrayList<Model> postList;
@@ -79,6 +79,12 @@ DatabaseReference ref;
                 finish();
             }
         });
-
+        btnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent accountlist = new Intent(AdminPage.this, AccountList.class);
+                startActivity(accountlist);
+            }
+        });
     }
 }

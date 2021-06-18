@@ -85,12 +85,6 @@
                 android:id="@+id/resIC"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Date of Birth:"
-                android:id="@+id/textDOB" />
 
             <TextView
                 android:layout_width="wrap_content"
