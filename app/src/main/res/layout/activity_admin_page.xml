@@ -11,13 +11,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="logout"
-        android:layout_marginLeft="310dp"/>
+        android:layout_alignParentRight="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/fab"
+        app:fabSize="normal"
+        android:src="@drawable/ic_baseline_add"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/postRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/fab"
+        android:clipToPadding="false"
+        android:layout_height="match_parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutAdminPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="550dp">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/btnAccount"
@@ -39,6 +58,7 @@
             android:layout_height="wrap_content"
             android:text="Location List"
             android:layout_weight="1"/>
+
 
     </LinearLayout>
 

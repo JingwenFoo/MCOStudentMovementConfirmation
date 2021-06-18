@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="logout"
-        android:layout_marginLeft="310dp"/>
+        android:layout_alignParentRight="true"/>
 
     <ImageView
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:src="@drawable/ump"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="100dp"/>
@@ -29,14 +29,14 @@
         android:textColor="@color/teal_700"
         android:textStyle="bold"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginTop="180dp"/>
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/textViewName"
         android:textSize="14dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="350dp"
         android:layout_marginLeft="130dp"
         android:gravity="center_horizontal"/>
 
@@ -47,14 +47,14 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="460dp"/>
+        android:layout_marginTop="400dp"/>
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/textViewID"
         android:textSize="14dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="400dp"
         android:layout_marginLeft="130dp"
         android:gravity="center_horizontal"/>
 
@@ -65,12 +65,12 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="400dp"/>
+        android:layout_marginTop="350dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="550dp">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/btnProfile"
@@ -93,6 +93,12 @@
             android:text="History"
             android:layout_weight="1"/>
 
+        <Button
+            android:id="@+id/btnPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 

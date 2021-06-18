@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mcostudentmovementconfirmation" >
+
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mcostudentmovementconfirmation"
+    tools:ignore="ProtectedPermissions">
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -13,8 +19,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MCOStudentMovementConfirmation" >
-        <activity
+
+        android:theme="@style/Theme.MCOStudentMovementConfirmation">
+         <activity
             android:name=".saveLocation"
             android:label="Add QrCode Location"
             android:parentActivityName=".AddLocation" />
@@ -25,7 +32,23 @@
             android:parentActivityName=".ViewLocationList" />
         <activity
             android:name=".ViewLocationList"
-            android:label="List of Location"
+            android:label="List of Location"      
+        <activity android:name=".AccountList"
+            android:label="Account List"
+            android:parentActivityName=".AdminPage"/>
+        <activity android:name=".ScanPage"></activity>
+        <activity android:name=".qrscanner" />
+        <activity
+            android:name=".UpdatePost"
+            android:label="Update Post"
+            android:parentActivityName=".AdminPage" />
+        <activity
+            android:name=".ViewPost"
+            android:label="Post"
+            android:parentActivityName=".StudentPage" />
+        <activity
+            android:name=".AddPost"
+            android:label="Add Post"
             android:parentActivityName=".AdminPage" />
         <activity
             android:name=".UpdateProfile"
