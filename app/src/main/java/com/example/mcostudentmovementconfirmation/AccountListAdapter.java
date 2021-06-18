@@ -31,8 +31,10 @@ Context context;
 
     @Override
     public void onBindViewHolder(@NonNull AccountViewHolder holder, int position) {
-        holder.studentName.setText(accountList.get(position).getName());
         holder.studentID.setText(accountList.get(position).getStudentID());
+        holder.studentName.setText(accountList.get(position).getName());
+
+
     }
 
     @Override
