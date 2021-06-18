@@ -35,7 +35,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        //Glide.with(context).load(postList.get(position).getImageUrl()).into(holder.imageView);
         Picasso.get().load(postList.get(position).getPostImage()).into(holder.imageView);
         holder.description.setText(postList.get(position).getDescription());
         holder.time.setText(postList.get(position).getTime());

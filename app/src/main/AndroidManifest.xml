@@ -16,7 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
 
+        <activity android:name=".ScanPage"></activity>
         <activity android:name=".qrscanner" />
+        <activity android:name=".AccountList"
+            android:label="Account List"
+            android:parentActivityName=".AdminPage"/>
         <activity
             android:name=".UpdatePost"
             android:label="Update Post"
