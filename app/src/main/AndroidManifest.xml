@@ -36,7 +36,12 @@
         <activity android:name=".AccountList"
             android:label="Account List"
             android:parentActivityName=".AdminPage"/>
-        <activity android:name=".ScanPage"></activity>
+        <activity android:name=".ScanPage"
+            android:label="Scan QR code"
+            android:parentActivityName=".StudentPage"></activity>
+        <activity android:name=".HistoryPage"
+            android:label="History Check In"
+            android:parentActivityName=".StudentPage"/>
         <activity android:name=".qrscanner" />
         <activity
             android:name=".UpdatePost"
