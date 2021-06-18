@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="logout"
-        android:layout_marginLeft="310dp"/>
+        android:layout_alignParentRight="true"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -27,15 +27,16 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="490dp"
         android:layout_below="@+id/fab"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        android:layout_height="match_parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutAdminPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="550dp">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/btnAccount"

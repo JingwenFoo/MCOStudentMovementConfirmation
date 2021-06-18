@@ -151,5 +151,5 @@
         android:text="Edit Profile"
         android:id="@+id/editProfileBtn"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="500dp"/>
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>
