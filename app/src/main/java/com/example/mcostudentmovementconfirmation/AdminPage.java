@@ -20,32 +20,33 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-Button logout,btnAccount;
+
+Button logout, location, accountList;
 FloatingActionButton addPostBtn;
 RecyclerView postRecyclerView;
 ArrayList<Model> postList;
 AdminPostAdapter adapter;
 DatabaseReference ref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
-        logout = (Button)findViewById(R.id.btnLogoutAdmin);
-        addPostBtn = (FloatingActionButton)findViewById(R.id.fab);
-        postRecyclerView = (RecyclerView)findViewById(R.id.postRecyclerView);
+        logout = (Button) findViewById(R.id.btnLogoutAdmin);
+        location = (Button) findViewById(R.id.btnLocation);
+        accountList = (Button) findViewById(R.id.btnAccount);
+        addPostBtn = (FloatingActionButton) findViewById(R.id.fab);
+        postRecyclerView = (RecyclerView) findViewById(R.id.postRecyclerView);
         postRecyclerView.setHasFixedSize(true);
         postRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         ref = FirebaseDatabase.getInstance().getReference().child("Post");
         postList = new ArrayList<>();
-        adapter = new AdminPostAdapter(this,postList);
+        adapter = new AdminPostAdapter(this, postList);
         postRecyclerView.setAdapter(adapter);
 
         ref.orderByChild("time").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Model model = dataSnapshot1.getValue(Model.class);
                     postList.add(model);
 
@@ -77,6 +78,20 @@ DatabaseReference ref;
             }
         });
 
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(AdminPage.this, ViewLocationList.class);
+                startActivity(in);
+            }
+        });
 
+        accountList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent account = new Intent(AdminPage.this, AccountList.class);
+                startActivity(account);
+            }
+        });
     }
 }

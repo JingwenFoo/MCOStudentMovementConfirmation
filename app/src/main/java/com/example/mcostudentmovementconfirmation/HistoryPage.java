@@ -32,7 +32,7 @@ public class HistoryPage extends AppCompatActivity {
 
         ArrayAdapter<String> myArrayAdapter= new ArrayAdapter<String>(HistoryPage.this, android.R.layout.simple_list_item_1,myArrayList);
 
-        myListView = (ListView) findViewById(R.id.listview1);
+        myListView = (ListView) findViewById(R.id.listviewHistory);
         myListView.setAdapter(myArrayAdapter);
 
         ref = FirebaseDatabase.getInstance().getReference();
