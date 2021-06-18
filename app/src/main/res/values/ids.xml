@@ -2,4 +2,5 @@
 <resources>
     <item name="listview1" type="id" />
     <item name="textViewSearch" type="id" />
+    <item name="search" type="id" />
 </resources>
