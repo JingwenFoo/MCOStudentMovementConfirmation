@@ -36,27 +36,23 @@ public class userlist extends AppCompatActivity {
         myAdapter = new MyMovementAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
 
-        database.addValueEventListener(new ValueEventListener() {
+        database.orderByChild("checkIn").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-
-                    Movement movement = dataSnapshot.getValue(Movement.class);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                {
+                    Movement movement = dataSnapshot1.getValue(Movement.class);
                     list.add(movement);
-
 
                 }
                 myAdapter.notifyDataSetChanged();
-
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
 
     }
 }
