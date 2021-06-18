@@ -23,18 +23,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-Button logout, accountList;
+
+Button logout, location, accountList;
 FloatingActionButton addPostBtn;
 RecyclerView postRecyclerView;
 ArrayList<Model> postList;
 AdminPostAdapter adapter;
 DatabaseReference ref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
-        logout = (Button)findViewById(R.id.btnLogoutAdmin);
+        logout = (Button) findViewById(R.id.btnLogoutAdmin);
+        location = (Button) findViewById(R.id.btnLocation);
         accountList = (Button)findViewById(R.id.btnAccount);
         addPostBtn = (FloatingActionButton)findViewById(R.id.fab);
         postRecyclerView = (RecyclerView)findViewById(R.id.postRecyclerView);
@@ -80,6 +81,12 @@ DatabaseReference ref;
                 finish();
             }
         });
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(AdminPage.this, ViewLocationList.class);
+                startActivity(in);
 
         accountList.setOnClickListener(new View.OnClickListener() {
             @Override
