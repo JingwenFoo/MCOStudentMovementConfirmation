@@ -18,6 +18,9 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class qrscanner extends AppCompatActivity implements ZXingScannerView.ResultHandler
@@ -30,7 +33,7 @@ public class qrscanner extends AppCompatActivity implements ZXingScannerView.Res
         super.onCreate(savedInstanceState);
         scannerView=new ZXingScannerView(this);
         setContentView(scannerView);
-        dbref= FirebaseDatabase.getInstance().getReference("QRdata");
+        dbref= FirebaseDatabase.getInstance().getReference("StudentMovement");
 
         Dexter.withContext(getApplicationContext())
                 .withPermission(Manifest.permission.CAMERA)
@@ -56,7 +59,13 @@ public class qrscanner extends AppCompatActivity implements ZXingScannerView.Res
     @Override
     public void handleResult(Result rawResult) {
         String data=rawResult.getText().toString();
-        dbref.push().setValue(data)
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:a");
+        String currentTime = sdf.format(System.currentTimeMillis());
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("studentID",preferences.getDataStatus(this));
+        map.put("time", currentTime);
+        map.put("checkIn",data);
+        dbref.push().setValue(map)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
