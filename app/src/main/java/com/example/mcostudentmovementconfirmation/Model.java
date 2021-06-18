@@ -3,6 +3,7 @@ package com.example.mcostudentmovementconfirmation;
 public class Model {
 //Model class
     String imageName,ImageUrl;
+    String postID, time, description, postImage, publisher;
 
     public Model(String imageName, String imageUrl) {
         this.imageName = imageName;
@@ -11,6 +12,14 @@ public class Model {
 
     //Constructors
     public Model(){ }
+
+    public Model(String postID, String time, String description, String postImage, String publisher) {
+        this.postID = postID;
+        this.time = time;
+        this.description = description;
+        this.postImage = postImage;
+        this.publisher = publisher;
+    }
 
     public String getImageName() {
         return imageName;
@@ -26,17 +35,6 @@ public class Model {
 
     public void setImageUrl(String imageUrl) {
         this.ImageUrl = imageUrl;
-    String postID, time, description, postImage, publisher;
-
-    public Model() {
-    }
-
-    public Model(String postID, String time, String description, String postImage, String publisher) {
-        this.postID = postID;
-        this.time = time;
-        this.description = description;
-        this.postImage = postImage;
-        this.publisher = publisher;
     }
 
     public String getTime() {

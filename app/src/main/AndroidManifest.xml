@@ -32,7 +32,7 @@
             android:parentActivityName=".ViewLocationList" />
         <activity
             android:name=".ViewLocationList"
-            android:label="List of Location"      
+            android:label="List of Location"  />
         <activity android:name=".AccountList"
             android:label="Account List"
             android:parentActivityName=".AdminPage"/>
