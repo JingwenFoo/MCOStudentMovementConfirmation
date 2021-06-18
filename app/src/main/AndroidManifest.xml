@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCOStudentMovementConfirmation">
-
+        <activity android:name=".historylist"></activity>
         <activity
             android:name=".saveLocation"
             android:label="Add QrCode Location"
@@ -29,17 +29,20 @@
         <activity
             android:name=".ViewLocationList"
             android:label="List of Location"
-            android:parentActivityName=".AdminPage"/>
-        <activity android:name=".ScanPage"
+            android:parentActivityName=".AdminPage" />
+        <activity
+            android:name=".ScanPage"
             android:label="Scan QR code"
-            android:parentActivityName=".StudentPage"></activity>
-        <activity android:name=".HistoryPage"
+            android:parentActivityName=".StudentPage" />
+        <activity
+            android:name=".HistoryPage"
             android:label="History Check In"
-            android:parentActivityName=".StudentPage"/>
+            android:parentActivityName=".StudentPage" />
         <activity android:name=".qrscanner" />
-        <activity android:name=".AccountList"
+        <activity
+            android:name=".AccountList"
             android:label="Account List"
-            android:parentActivityName=".AdminPage"/>
+            android:parentActivityName=".AdminPage" />
         <activity
             android:name=".UpdatePost"
             android:label="Update Post"

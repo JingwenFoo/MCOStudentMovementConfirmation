@@ -66,7 +66,7 @@ DatabaseReference ref;
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent history = new Intent(StudentPage.this, HistoryPage.class);
+                Intent history = new Intent(StudentPage.this, historylist.class);
                 startActivity(history);
             }
         });

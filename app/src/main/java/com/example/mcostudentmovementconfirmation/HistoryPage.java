@@ -3,6 +3,8 @@ package com.example.mcostudentmovementconfirmation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -13,49 +15,39 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class HistoryPage extends AppCompatActivity {
 
-    ListView myListView;
-    ArrayList<String> myArrayList=new ArrayList<>();
-
+    RecyclerView myListView;
+    ArrayList<Student> myArrayList;
+    AccountListAdapter adapter;
     DatabaseReference ref;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_page);
+        myListView = (RecyclerView) findViewById(R.id.listview1);
+        myListView.setHasFixedSize(true);
+        myListView.setLayoutManager(new LinearLayoutManager(this));
+        myArrayList = new ArrayList<>();
+        adapter = new AccountListAdapter(myArrayList,this);
 
-        ArrayAdapter<String> myArrayAdapter= new ArrayAdapter<String>(HistoryPage.this, android.R.layout.simple_list_item_1,myArrayList);
-
-        myListView = (ListView) findViewById(R.id.listviewHistory);
-        myListView.setAdapter(myArrayAdapter);
-
-        ref = FirebaseDatabase.getInstance().getReference();
-        ref.child("QRdata").addChildEventListener(new ChildEventListener() {
+        myListView.setAdapter(adapter);
+        ref = FirebaseDatabase.getInstance().getReference().child("StudentMovement");
+        Query query = ref.orderByChild("studentID");
+        query.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String value = dataSnapshot.getValue(String.class);
-                myArrayList.add(value);
-                myArrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                myArrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Student studentList = dataSnapshot1.getValue(Student.class);
+                    myArrayList.add(studentList);
+                }
+                adapter.notifyDataSetChanged();
 
             }
 
@@ -64,6 +56,7 @@ public class HistoryPage extends AppCompatActivity {
 
             }
         });
+
 
     }
 }
