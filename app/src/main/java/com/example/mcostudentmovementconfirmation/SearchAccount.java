@@ -45,7 +45,7 @@ public class SearchAccount extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ValueDatabase = dataSnapshot.getValue().toString();
-                refinedData = ValueDatabase.substring(1,ValueDatabase.length()-1);
+                refinedData = ValueDatabase.substring(1, ValueDatabase.length() - 1);
 
                 ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(SearchAccount.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.state));
                 myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -53,15 +53,13 @@ public class SearchAccount extends AppCompatActivity {
             }
 
 
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
-
-
+    }
 }
-}
+
+
+

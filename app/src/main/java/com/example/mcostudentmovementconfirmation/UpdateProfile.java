@@ -100,7 +100,7 @@ DatabaseReference ref;
                         }
                         if(newPasswrd.length()<6)
                         {
-                            Toast.makeText(UpdateProfile.this,"Password length must at least 6 characters...",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateProfile.this,"Password length must be at least 6 characters...",Toast.LENGTH_SHORT).show();
                             return;
                         }
 
