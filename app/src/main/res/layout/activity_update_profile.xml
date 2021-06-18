@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateProfile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Student Name : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"/>
+
+    <EditText
+        android:id="@+id/edittextName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="160dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Student ID : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textSID"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="160dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Student IC : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textSIC"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:inputType="number"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="160dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Phone : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="30dp"/>
+
+    <EditText
+        android:id="@+id/edittextPhone"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:inputType="phone"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="160dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Email : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="30dp"/>
+
+    <EditText
+        android:id="@+id/edittextEmail"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:inputType="textEmailAddress"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="290dp"
+        android:layout_marginLeft="160dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="State : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="30dp"/>
+
+    <EditText
+        android:id="@+id/edittextState"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="160dp"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Password : "
+        android:gravity="right"
+        android:textSize="16dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textSPassword"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:inputType="textPassword"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="160dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/updateProfileBtn"
+        android:layout_marginLeft="150dp"
+        android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change password"
+        android:id="@+id/btnChangePasswrd"
+        android:layout_below="@+id/textSPassword"
+        android:layout_marginLeft="200dp"/>
+</RelativeLayout>
