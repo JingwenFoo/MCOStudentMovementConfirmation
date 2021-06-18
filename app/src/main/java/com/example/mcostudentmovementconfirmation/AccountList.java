@@ -1,6 +1,5 @@
 package com.example.mcostudentmovementconfirmation;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,8 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class AccountList extends AppCompatActivity {
-    ListView myListView;
-    ArrayList<String> myArrayList = new ArrayList<>();
+
     DatabaseReference ref;
 
     @Override
