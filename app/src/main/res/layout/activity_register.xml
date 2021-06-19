@@ -24,7 +24,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="70dp"/>
 
     <EditText
         android:id="@+id/editTextStdEmail"
@@ -33,7 +33,7 @@
         android:hint="Enter Email"
         android:inputType="textEmailAddress"
         android:gravity="center_horizontal"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="130dp"/>
 
     <TextView
@@ -43,7 +43,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="120dp"/>
 
     <EditText
         android:id="@+id/editTextStdID"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:hint="Enter Student ID"
         android:gravity="center_horizontal"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="130dp"/>
 
     <TextView
@@ -61,7 +61,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="170dp"/>
 
     <EditText
         android:id="@+id/editTextStdName"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:hint="Enter Student Name"
         android:gravity="center_horizontal"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:layout_marginLeft="130dp"/>
 
     <TextView
@@ -79,7 +79,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginTop="220dp"/>
 
     <EditText
         android:id="@+id/editTextStdIC"
@@ -88,7 +88,7 @@
         android:inputType="number"
         android:hint="Enter Student IC"
         android:gravity="center_horizontal"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="200dp"
         android:layout_marginLeft="130dp"/>
 
     <TextView
@@ -98,7 +98,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="300dp"/>
+        android:layout_marginTop="270dp"/>
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -107,7 +107,7 @@
         android:hint="Enter Phone Number"
         android:inputType="phone"
         android:gravity="center_horizontal"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="250dp"
         android:layout_marginLeft="130dp"/>
 
     <TextView
@@ -117,7 +117,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="350dp"/>
+        android:layout_marginTop="320dp"/>
 
     <Spinner
         android:id="@+id/state_spinner"
@@ -126,7 +126,7 @@
         android:hint="Enter State"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="310dp"
         android:layout_marginLeft="130dp"/>
 
     <TextView
@@ -136,7 +136,7 @@
         android:textSize="14dp"
         android:gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="400dp"/>
+        android:layout_marginTop="370dp"/>
 
     <EditText
         android:id="@+id/editTextPasswrd"
@@ -145,7 +145,7 @@
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:gravity="center_horizontal"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="360dp"
         android:layout_marginLeft="130dp"/>
 
     <Button
@@ -154,7 +154,7 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="450dp"/>
+        android:layout_above="@+id/btnBackToLogin" />
 
     <Button
         android:id="@+id/btnBackToLogin"
@@ -162,6 +162,6 @@
         android:layout_height="wrap_content"
         android:text="Back to login"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="520dp"/>
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

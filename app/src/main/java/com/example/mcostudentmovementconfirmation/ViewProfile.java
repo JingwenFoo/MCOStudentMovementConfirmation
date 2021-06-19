@@ -24,7 +24,7 @@ DatabaseReference ref;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
         stdName = findViewById(R.id.textName);
-        stdID = findViewById(R.id.textID);
+        stdID = findViewById(R.id.textLocation);
         stdIC = findViewById(R.id.textIC);
         phone = findViewById(R.id.textPhone);
         email = findViewById(R.id.textEmail);

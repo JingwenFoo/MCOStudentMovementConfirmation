@@ -46,11 +46,16 @@ DatabaseReference ref;
         student = new Student();
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference();
+
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (stdID.getText().length() != 0 && stdName.getText().length() != 0 && stdIC.getText().length() != 0 && phone.getText().length() != 0 && passwrd.getText().length() != 0) {
-                   mAuth.createUserWithEmailAndPassword(email.getText().toString(), passwrd.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    if(passwrd.getText().length()<6)
+                    {
+                        Toast.makeText(Register.this,"Password length must be at least 6 characters...",Toast.LENGTH_SHORT).show();
+                    }
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), passwrd.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if (task.isSuccessful()) {

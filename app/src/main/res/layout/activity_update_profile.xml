@@ -151,13 +151,13 @@
         android:text="Update"
         android:id="@+id/updateProfileBtn"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="500dp"/>
+        android:layout_alignParentBottom="true"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="change password"
         android:id="@+id/btnChangePasswrd"
-        android:layout_marginTop="430dp"
+        android:layout_below="@+id/textSPassword"
         android:layout_marginLeft="200dp"/>
 </RelativeLayout>

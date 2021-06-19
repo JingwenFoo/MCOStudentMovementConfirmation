@@ -1,10 +1,17 @@
 package com.example.mcostudentmovementconfirmation;
 
 public class Model {
+//Model class
+    String imageName,ImageUrl;
     String postID, time, description, postImage, publisher;
 
-    public Model() {
+    public Model(String imageName, String imageUrl) {
+        this.imageName = imageName;
+        this.ImageUrl = imageUrl;
     }
+
+    //Constructors
+    public Model(){ }
 
     public Model(String postID, String time, String description, String postImage, String publisher) {
         this.postID = postID;
@@ -12,6 +19,22 @@ public class Model {
         this.description = description;
         this.postImage = postImage;
         this.publisher = publisher;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.ImageUrl = imageUrl;
     }
 
     public String getTime() {
@@ -52,5 +75,6 @@ public class Model {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+
     }
 }
