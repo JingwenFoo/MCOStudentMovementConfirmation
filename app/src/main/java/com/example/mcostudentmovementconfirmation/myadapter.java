@@ -70,9 +70,11 @@ public class myadapter extends FirebaseRecyclerAdapter<model2,myadapter.myviewho
                     @Override
                     public void onClick(View view) {
                         Map<String,Object> map=new HashMap<>();
-                        map.put("course",studentID.getText().toString());
+                        map.put("studentID",studentID.getText().toString());
                         map.put("name",name.getText().toString());
                         map.put("email",email.getText().toString());
+                        map.put("phone",phone.getText().toString());
+                        map.put("state",state.getText().toString());
 
 
                         FirebaseDatabase.getInstance().getReference().child("students")

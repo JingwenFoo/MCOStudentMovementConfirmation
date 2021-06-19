@@ -35,7 +35,7 @@
                 android:text="id"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
-
+           
 
         </LinearLayout>
 
@@ -87,7 +87,6 @@
                 android:text="id"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
-
 
         </LinearLayout>
 
