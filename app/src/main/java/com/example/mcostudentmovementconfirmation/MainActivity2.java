@@ -24,6 +24,7 @@ public class MainActivity2 extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         setTitle("Search here..");
 
         recview=(RecyclerView)findViewById(R.id.recview);
@@ -34,6 +35,10 @@ public class MainActivity2 extends AppCompatActivity
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("User"), model2.class)
                         .build();
 
+        if(getIntent().hasExtra("stdID")&&(getIntent().hasExtra("stdName"))){
+            String id = getIntent().getStringExtra("stdID");
+            String name = getIntent().getStringExtra("stdName");
+        }
         adapter=new myadapter(options);
         recview.setAdapter(adapter);
     }
