@@ -22,19 +22,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Check In :"
+                android:text="ID"
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="25dp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/tvcheckIn"
+                android:id="@+id/viewSID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:text="Payung Putih"
+                android:text="id"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
+           
 
         </LinearLayout>
 
@@ -47,19 +48,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Student ID :"
+                android:text="Check In: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="25dp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/tvstudentID"
+                android:id="@+id/viewCI"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:text="CB18079"
+                android:text="id"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
+
 
         </LinearLayout>
 
@@ -72,22 +74,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time:"
+                android:text="Time: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="25dp"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/tvtime"
+                android:id="@+id/viewTIME"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:text="18-06-2021 23:36:PM"
+                android:text="id"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
