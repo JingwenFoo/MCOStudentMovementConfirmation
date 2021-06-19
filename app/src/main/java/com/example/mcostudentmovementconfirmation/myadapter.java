@@ -77,7 +77,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model2,myadapter.myviewho
                         map.put("state",state.getText().toString());
 
 
-                        FirebaseDatabase.getInstance().getReference().child("students")
+                        FirebaseDatabase.getInstance().getReference().child("User").child("studentID")
                                 .child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -109,7 +109,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model2,myadapter.myviewho
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("students")
+                        FirebaseDatabase.getInstance().getReference().child("User").child("studentID")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
