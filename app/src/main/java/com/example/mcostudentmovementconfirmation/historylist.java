@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -35,8 +36,9 @@ public class historylist extends AppCompatActivity {
         list= new ArrayList<>();
         historyAdapter= new HistoryAdapter(this,list);
         recyclerView.setAdapter(historyAdapter);
-
-        database.addValueEventListener(new ValueEventListener() {
+        database = FirebaseDatabase.getInstance().getReference().child("StudentMovement");
+        Query query = database.orderByChild("studentID").equalTo(preferences.getDataStatus(this));
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

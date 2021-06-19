@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
 
-Button logout, location, accountList;
+Button logout, location, accountList, studentMovementRecord;
 FloatingActionButton addPostBtn;
 RecyclerView postRecyclerView;
 ArrayList<Model> postList;
@@ -34,6 +34,7 @@ DatabaseReference ref;
         logout = (Button) findViewById(R.id.btnLogoutAdmin);
         location = (Button) findViewById(R.id.btnLocation);
         accountList = (Button) findViewById(R.id.btnAccount);
+        studentMovementRecord = (Button) findViewById(R.id.btnRecord);
         addPostBtn = (FloatingActionButton) findViewById(R.id.fab);
         postRecyclerView = (RecyclerView) findViewById(R.id.postRecyclerView);
         postRecyclerView.setHasFixedSize(true);
@@ -93,5 +94,14 @@ DatabaseReference ref;
                 startActivity(account);
             }
         });
+
+        studentMovementRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent record = new Intent(AdminPage.this, HistoryPage.class);
+                startActivity(record);
+            }
+        });
+
     }
 }

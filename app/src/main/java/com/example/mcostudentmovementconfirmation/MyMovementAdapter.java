@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyMovementAdapter extends RecyclerView.Adapter {
+public class MyMovementAdapter extends RecyclerView.Adapter<MyMovementAdapter.MyViewHolder> {
     Context context;
 
-    ArrayList<Movement> list;
+    ArrayList<history> list;
 
 
 
-    public MyMovementAdapter(Context context, ArrayList<Movement> list) {
+    public MyMovementAdapter(Context context, ArrayList<history> list) {
         this.context = context;
         this.list = list;
     }
@@ -26,27 +26,19 @@ public class MyMovementAdapter extends RecyclerView.Adapter {
     @NonNull
 
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.admin_student_movement,parent,false);
         return  new MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
-    }
-
-
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
-        Movement movement = list.get(position);
-        holder.checkIn.setText(movement.getCheckIn());
-        holder.studentID.setText(movement.getStudentID());
-        holder.time.setText(movement.getTime());
-
-
+        holder.checkIn.setText(list.get(position).getCheckIn());
+        holder.studentID.setText(list.get(position).getStudentID());
+        holder.time.setText(list.get(position).getTime());
     }
 
 
+    @Override
     public int getItemCount() {
         return list.size();
     }
@@ -58,9 +50,9 @@ public class MyMovementAdapter extends RecyclerView.Adapter {
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            checkIn = itemView.findViewById(R.id.tvcheckIn);
-            studentID = itemView.findViewById(R.id.tvstudentID);
-            time = itemView.findViewById(R.id.tvtime);
+            checkIn = itemView.findViewById(R.id.vCI);
+            studentID = itemView.findViewById(R.id.vSID);
+            time = itemView.findViewById(R.id.vTIME);
 
         }
     }

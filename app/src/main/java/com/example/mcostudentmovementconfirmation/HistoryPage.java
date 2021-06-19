@@ -23,8 +23,8 @@ import java.util.ArrayList;
 public class HistoryPage extends AppCompatActivity {
 
     RecyclerView myListView;
-    ArrayList<Student> myArrayList;
-    AccountListAdapter adapter;
+    ArrayList<history> myArrayList;
+    MyMovementAdapter adapter;
     DatabaseReference ref;
 
     @Override
@@ -35,17 +35,17 @@ public class HistoryPage extends AppCompatActivity {
         myListView.setHasFixedSize(true);
         myListView.setLayoutManager(new LinearLayoutManager(this));
         myArrayList = new ArrayList<>();
-        adapter = new AccountListAdapter(myArrayList,this);
-
-        myListView.setAdapter(adapter);
+        adapter = new MyMovementAdapter(this,myArrayList);
         ref = FirebaseDatabase.getInstance().getReference().child("StudentMovement");
-        Query query = ref.orderByChild("studentID");
-        query.addValueEventListener(new ValueEventListener() {
+        myListView.setAdapter(adapter);
+
+
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Student studentList = dataSnapshot1.getValue(Student.class);
-                    myArrayList.add(studentList);
+                    history record = dataSnapshot1.getValue(history.class);
+                    myArrayList.add(record);
                 }
                 adapter.notifyDataSetChanged();
 
